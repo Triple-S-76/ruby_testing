@@ -114,7 +114,7 @@ describe FindNumber do
     # Create a random_number double called 'number_guessing'. Allow the double
     # to receive 'value' and return the value of 8, in one of the two ways
     # explained above.
-    let(:number_guessing) { double('number_guessing', value: 8) }
+
     subject(:game_guessing) { described_class.new(0, 9, number_guessing) }
 
     # Before you write the #make_guess method:
@@ -123,8 +123,7 @@ describe FindNumber do
     # It will fail with an undefined method error because you haven't
     # written #make_guess yet!
     context 'when min is 0 and max is 9' do
-      it 'returns 4' do
-        expect(game_guessing.make_guess).to eq(4)
+      xit 'returns 4' do
       end
     end
 
@@ -137,30 +136,22 @@ describe FindNumber do
     # random number double created inside this method's describe block.
 
     context 'when min is 5 and max is 9' do
-      subject(:game_guessing) { described_class.new(5, 9, number_guessing) }
-      it 'returns 7' do
-        expect(game_guessing.make_guess).to eq(7)
+      xit 'returns 7' do
       end
     end
 
     context 'when min is 8 and max is 9' do
-      subject(:game_guessing) { described_class.new(8, 9, number_guessing) }
-      it 'returns 8' do
-        expect(game_guessing.make_guess).to eq(8)
+      xit 'returns 8' do
       end
     end
 
     context 'when min is 0 and max is 3' do
-      subject(:game_guessing) { described_class.new(0, 3, number_guessing) }
-      it 'returns 1' do
-        expect(game_guessing.make_guess).to eq(1)
+      xit 'returns 1' do
       end
     end
 
     context 'when min and max both equal 3' do
-      subject(:game_guessing) { described_class.new(3, 3, number_guessing) }
-      it 'returns 3' do
-        expect(game_guessing.make_guess).to eq(3)
+      xit 'returns 3' do
       end
     end
   end
@@ -177,11 +168,7 @@ describe FindNumber do
       # the random_number double's value above. Remember that this test will not
       # be able to pass yet because you haven't written the method!
 
-      let(:random_number) { double('random_number', value: 5) }
-      subject(:game_guessing) { described_class.new(0, 9, random_number, 5) }
-
-      it 'is game over' do
-        expect(game_guessing.game_over?).to be(true)
+      xit 'is game over' do
       end
     end
 
@@ -192,10 +179,7 @@ describe FindNumber do
     # NOT equal the random_number double's value above.
 
     context 'when guess and random_number are not equal' do
-      let(:random_number) { double('random_number', value: 88) }
-      subject(:game_guessing) { described_class.new(0, 3, random_number, 2)}
-      it 'is not game over' do
-        expect(game_guessing.game_over?).to eq(false)
+      xit 'is not game over' do
       end
     end
   end
@@ -219,32 +203,20 @@ describe FindNumber do
     context 'when the guess is less than the answer' do
       subject(:low_guess_game) { described_class.new(0, 9, number_range, 4) }
 
-      before do
-        low_guess_game.update_range
+      xit 'updates min to 5' do
       end
 
-      it 'updates min to 5' do
-        expect(low_guess_game.min).to eq(5)
-      end
-
-      it 'does not update max' do
-        expect(low_guess_game.max).to eq(9)
+      xit 'does not update max' do
       end
     end
 
     context 'when the guess is more than the answer' do
       subject(:high_guess_game) { described_class.new(0, 9, number_range, 9) }
 
-      before do
-        high_guess_game.update_range
+      xit 'does not update min' do
       end
 
-      it 'does not update min' do
-        expect(high_guess_game.min).to eq(0)
-      end
-
-      it 'updates max to 8' do
-        expect(high_guess_game.max).to eq(8)
+      xit 'updates max to 8' do
       end
     end
 
@@ -260,18 +232,10 @@ describe FindNumber do
     # Write a test for any 'edge cases' that you can think of, for example:
 
     context 'when the guess is 7, min=5, and max=8' do
-      subject(:edge_case) { described_class.new(5, 8, number_range, 7) }
-
-      before do
-        edge_case.update_range
+      xit 'updates min to the same value as max' do
       end
 
-      it 'updates min to the same value as max' do
-        expect(edge_case.min == edge_case.max)
-      end
-
-      it 'does not update max' do
-        expect(edge_case.max == 8)
+      xit 'does not update max' do
       end
     end
   end
