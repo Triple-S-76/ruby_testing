@@ -39,18 +39,20 @@ end
 
 describe String do
   # Create a let variable that will pass the first test.
+  let(:favorite_food) { String.new('tacos') }
 
   # remove the 'x' before running this test
-  xit 'is equal to tacos' do
+  it 'is equal to tacos' do
     expect(favorite_food).to eq('tacos')
   end
 
   # remove the 'x' before running this test
-  context 'when favorite food is updated' do
+  context 'when favorite food is updated to Pizza' do
     # Change the favorite_food let variable.
-
-    xit 'updates the favorite food' do
+    favorite_food = 'Pizza'
+    it 'updates the favorite food to Pizza' do
       # Write a test that will pass.
+      expect(favorite_food).to eq('Pizza')
     end
   end
 end
