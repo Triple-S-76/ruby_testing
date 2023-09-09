@@ -70,34 +70,66 @@ describe MagicSeven do
   # Write a test for each of the following methods:
 
   describe '#subtract_four' do
+    context 'when the previous step is 10' do
+      it 'returns 6' do
+        previous_step = 10
+        result = game.subtract_four(previous_step)
+        expect(result).to be 6
+      end
+    end
   end
 
   describe '#divide_by_two' do
+    context 'when the previous step is 66' do
+      it 'returns 33' do
+        previous_step = 66
+        result = game.divide_by_two(previous_step)
+        expect(result).to be 33
+      end
+    end
   end
 
   # The following tests will need you to create new instances of MagicSeven with
   # a specific value for the random_number.
   describe '#subtract_random_number' do
+    context 'when the previous step is 500 and the random number is `100' do
+      subject(:game2) { described_class.new(100) }
+
+      it 'subtracts 100 from 500 to get 400' do
+        previous_step = 500
+        result = game2.subtract_random_number(previous_step)
+        expect(result).to be 400
+      end
+    end
   end
 
   # The #play method will always return seven! Test this game, using any
   # integer as the random_number. Update the context with the number.
   describe '#play' do
-    context 'when the random number is ...' do
-      # remove the 'x' before running this test
-      xit 'will return 7' do
+    context 'when the random number is 500' do
+      subject(:game500) { described_class.new(500) }
+
+      it 'will return 7' do
+        result = game500.play
+        expect(result).to be 7
       end
     end
 
-    context 'when the random number is ...' do
-      # remove the 'x' before running this test
-      xit 'will return 7' do
+    context 'when the random number is -999' do
+      subject(:game1) { described_class.new(-999) }
+
+      it 'will return 7' do
+        result = game1.play
+        expect(result).to be 7
       end
     end
 
-    context 'when the random number is ...' do
-      # remove the 'x' before running this test
-      xit 'will return 7' do
+    context 'when the random number is a big number' do
+      subject(:game_big) { described_class.new(1239879876754) }
+
+      it 'will return 7' do
+        result = game_big.play
+        expect(result).to be 7
       end
     end
   end
