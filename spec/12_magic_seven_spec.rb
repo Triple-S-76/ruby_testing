@@ -70,34 +70,62 @@ describe MagicSeven do
   # Write a test for each of the following methods:
 
   describe '#subtract_four' do
+    context 'when the previous step is 22' do
+      it 'returns 18' do
+        previous_step = 22
+        result = game.subtract_four(previous_step)
+        expect(result).to eq(18)
+      end
+    end
   end
 
   describe '#divide_by_two' do
+    context 'when the previous step is 166' do
+      it 'returns 83' do
+        previous_step = 166
+        result = game.divide_by_two(previous_step)
+        expect(result).to eq(83)
+      end
+    end
   end
 
   # The following tests will need you to create new instances of MagicSeven with
   # a specific value for the random_number.
   describe '#subtract_random_number' do
+    subject(:my_game) { described_class.new }
+    it 'returns 7 from a random number' do
+      result = my_game.play
+      expect(result).to eq(7)
+    end
   end
 
   # The #play method will always return seven! Test this game, using any
   # integer as the random_number. Update the context with the number.
   describe '#play' do
-    context 'when the random number is ...' do
+    context 'when the random number is 1' do
+      subject(:game_1) { described_class.new(1) }
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      it 'will return 7' do
+        result = game_1.play
+        expect(result).to eq(7)
+      end
+    end
+
+    context 'when the random number is -62' do
+      subject(:game_minus62) { described_class.new(-62) }
+      # remove the 'x' before running this test
+      it 'will return 7' do
+        result = game_minus62.play
+        expect(result).to eq(7)
       end
     end
 
     context 'when the random number is ...' do
+      subject(:huge_number) { described_class.new(19843652637484726273) }
       # remove the 'x' before running this test
-      xit 'will return 7' do
-      end
-    end
-
-    context 'when the random number is ...' do
-      # remove the 'x' before running this test
-      xit 'will return 7' do
+      it 'will return 7' do
+        result = huge_number.play
+        expect(result).to eq(7)
       end
     end
   end
